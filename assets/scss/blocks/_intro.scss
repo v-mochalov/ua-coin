@@ -1,4 +1,6 @@
 .intro{
+    overflow: hidden;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,8 +91,27 @@
     }
     &__link{
         position: absolute;
-        right: 35px;
+        right: 60px;
         bottom: 25px;
         z-index: 1001;
+        transition: 1s linear;
+        &:hover{
+            transition: 0.5s linear;
+            filter: drop-shadow(0px 0px 10px yellow);
+        }        
+    }
+    &__bg{
+        img{
+            width: 300px;
+            margin-left: 37px;
+        }        
+        position: fixed;
+        bottom: -40%;
+        left: 50%;
+        opacity: 0.5;
+        transform: translate(-50%, -50%);
+        @include xxl{
+            bottom: -20%;
+        }
     }
 }
