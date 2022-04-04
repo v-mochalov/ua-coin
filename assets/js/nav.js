@@ -1,6 +1,6 @@
 //TIMER
 
-var deadline = '05 04 2022 06:00:00 GMT+0300';
+var deadline = '04 04 2022 12:00:00 GMT+0300';
 function time_remaining(endtime){
 	var t = Date.parse(endtime) - Date.parse(new Date());
 	var seconds = Math.floor( (t/1000) % 60 );
@@ -12,7 +12,7 @@ function time_remaining(endtime){
 function run_clock(id,endtime){
 	var clock = document.getElementById(id);
 	
-	// get spans where our clock numbers are held
+	
 	var days_span = clock.querySelector('.days');
 	var hours_span = clock.querySelector('.hours');
 	var minutes_span = clock.querySelector('.minutes');
@@ -21,7 +21,7 @@ function run_clock(id,endtime){
 	function update_clock(){
 		var t = time_remaining(endtime);
 		
-		// update the numbers in each part of the clock
+		
 		days_span.innerHTML = t.days;
 		hours_span.innerHTML = ('0' + t.hours).slice(-2);
 		minutes_span.innerHTML = ('0' + t.minutes).slice(-2);
@@ -33,3 +33,20 @@ function run_clock(id,endtime){
 	var timeinterval = setInterval(update_clock,1000);
 }
 run_clock('clockdiv',deadline);
+
+// Popup button
+$('a[href^="popup-btn"]').bind("click", function (e) {
+	$('.overlay').fadeIn();
+	e.preventDefault();
+});
+
+$('.close-popup').click(function () {
+	$('.overlay').fadeOut();
+});
+
+$(document).mouseup(function (e) {
+	var popup = $('.popup');
+	if (e.target != popup[0] && popup.has(e.target).length === 0) {
+		 $('.overlay').fadeOut();
+	}
+});
