@@ -1,0 +1,38 @@
+.header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #071545;
+    width: 37px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    } 
+    &__item{
+        margin-bottom: 25px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }   
+    &__link{
+        
+        svg{
+            height: 22px;
+            width: 22px;
+
+        }
+        &:hover{
+            svg{
+                path{
+                    fill: yellow;
+                }
+            }
+        }
+    }
+}
