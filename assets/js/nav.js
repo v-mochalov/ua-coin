@@ -51,13 +51,3 @@ $(document).mouseup(function (e) {
 	}
 });
 
-//video
-
-var elem = document.getElementById("intro__video");
-if (elem.requestFullscreen) {
-  elem.requestFullscreen();
-} else if (elem.mozRequestFullScreen) {
-  elem.mozRequestFullScreen();
-} else if (elem.webkitRequestFullscreen) {
-  elem.webkitRequestFullscreen();
-}
