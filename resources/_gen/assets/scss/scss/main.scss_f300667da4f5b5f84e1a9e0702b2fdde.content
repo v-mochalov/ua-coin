@@ -147,9 +147,6 @@ h2 {
 body {
   overflow: hidden; }
 
-html {
-  scroll-behavior: smooth; }
-
 .btn {
   display: flex;
   align-items: center;
@@ -175,12 +172,14 @@ html {
   width: 100%;
   height: 100vh;
   top: 0;
-  left: 0;
+  left: 37px;
   display: none;
   background: rgba(83, 79, 79, 0.5);
   backdrop-filter: blur(10px);
   z-index: 1000; }
-
+  @media only screen and (max-width: 992px) {
+    .overlay {
+      left: 0; } }
 .popup {
   position: absolute;
   width: 340px;
@@ -344,24 +343,66 @@ html {
 
 .header {
   position: fixed;
+  bottom: 0;
+  height: 100%;
   left: 0;
-  top: 0;
   background: #071545;
   width: 37px;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1001; }
+  @media only screen and (max-width: 1332px) {
+    .header {
+      bottom: 50%;
+      transform: translate(0, 50%);
+      height: auto;
+      padding-top: 20px;
+      padding-bottom: 20px; } }
+  @media only screen and (max-width: 992px) {
+    .header {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      height: 37px;
+      width: auto; } }
+  @media only screen and (max-width: 576px) {
+    .header {
+      left: 0;
+      bottom: 50%;
+      transform: translate(0, 50%);
+      height: auto;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      width: 37px; } }
   .header__list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
+    @media only screen and (max-width: 992px) {
+      .header__list {
+        flex-direction: row-reverse;
+        padding: 0 25px; } }
+    @media only screen and (max-width: 576px) {
+      .header__list {
+        flex-direction: column; } }
   .header__item {
     margin-bottom: 25px; }
     .header__item:last-child {
       margin-bottom: 0; }
+    @media only screen and (max-width: 992px) {
+      .header__item {
+        margin-bottom: 0;
+        margin-left: 15px; }
+        .header__item:last-child {
+          margin-left: 0; } }
+    @media only screen and (max-width: 576px) {
+      .header__item {
+        margin-left: 0;
+        margin-bottom: 25px; }
+        .header__item:last-child {
+          margin-bottom: 0; } }
   .header__link svg {
     height: 22px;
     width: 22px; }
@@ -369,36 +410,79 @@ html {
     fill: yellow; }
 
 .intro {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-left: 37px;
   height: 100vh;
-  z-index: 3;
-  width: 100vw; }
+  z-index: 3; }
+  @media only screen and (min-width: 1332px) {
+    .intro {
+      margin-left: 37px; } }
+  @media only screen and (max-width: 992px) {
+    .intro {
+      background: linear-gradient(153.99deg, #736ECC 0%, #D7CB89 100%); } }
   .intro__video {
     display: flex;
     justify-content: center;
     position: fixed;
     z-index: 2;
-    left: 37px;
+    left: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
     object-fit: cover; }
+    @media only screen and (min-width: 1332px) {
+      .intro__video {
+        left: 37px; } }
+    @media only screen and (max-width: 992px) {
+      .intro__video {
+        display: none; } }
   .intro__wrapper {
     position: relative;
     z-index: 1100;
-    width: 1300px;
     display: flex;
     justify-content: space-between;
     align-items: center; }
+    @media only screen and (min-width: 1332px) {
+      .intro__wrapper {
+        left: 37px;
+        width: 1300px; } }
+    @media only screen and (max-width: 1332px) {
+      .intro__wrapper {
+        width: 900px; } }
+    @media only screen and (max-width: 992px) {
+      .intro__wrapper {
+        width: auto;
+        align-content: center; } }
+    @media only screen and (max-width: 768px) {
+      .intro__wrapper {
+        flex-direction: column; } }
   .intro__left {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    text-align: center; }
+    @media only screen and (max-width: 768px) {
+      .intro__left {
+        margin-bottom: 125px;
+        justify-content: center;
+        font-size: 30px;
+        line-height: 27px; } }
+    @media only screen and (max-width: 576px) {
+      .intro__left {
+        margin-bottom: 65px; } }
+  .intro__img {
+    visibility: hidden; }
+    @media only screen and (max-width: 992px) {
+      .intro__img {
+        visibility: visible; } }
+    @media only screen and (max-width: 768px) {
+      .intro__img {
+        margin-bottom: 110px; } }
+    @media only screen and (max-width: 576px) {
+      .intro__img {
+        margin-bottom: 65px; } }
   .intro__downline {
     margin-top: 18px;
     font-size: 32px;
@@ -418,12 +502,17 @@ html {
     .intro__btn:hover {
       cursor: pointer; }
   .intro__timer-title {
+    text-align: center;
     font-size: 40px;
     line-height: 20px;
     color: #071545;
     font-style: normal;
     font-weight: 700;
     margin-bottom: 20px; }
+    @media only screen and (max-width: 768px) {
+      .intro__timer-title {
+        font-size: 22px;
+        line-height: 20px; } }
   .intro__timer {
     display: flex;
     flex-direction: column;
@@ -434,10 +523,13 @@ html {
       line-height: 28px;
       text-align: center;
       font-weight: 700;
-      margin-left: 20px; }
+      display: flex;
+      flex-wrap: nowrap; }
     .intro__timer #clockdiv > div {
       margin-right: 22px;
       display: inline-block; }
+      .intro__timer #clockdiv > div:last-child {
+        margin-right: 0; }
     .intro__timer #clockdiv div > span {
       padding: 11px;
       display: flex;
@@ -454,26 +546,22 @@ html {
       line-height: 14px;
       color: #000000; }
   .intro__link {
-    position: absolute;
-    right: 60px;
+    position: fixed;
+    right: 40px;
     bottom: 25px;
-    z-index: 1001;
+    z-index: 9999999;
     transition: 1s linear; }
     .intro__link:hover {
       transition: 0.5s linear;
       filter: drop-shadow(0px 0px 10px yellow); }
-  .intro__bg {
-    position: fixed;
-    bottom: -40%;
-    left: 50%;
-    opacity: 0.5;
-    transform: translate(-50%, -50%); }
-    .intro__bg img {
-      width: 300px;
-      margin-left: 37px; }
-    @media only screen and (min-width: 1680px) {
-      .intro__bg {
-        bottom: -20%; } }
+    @media only screen and (max-width: 992px) {
+      .intro__link {
+        width: 60px; } }
+    @media only screen and (max-width: 576px) {
+      .intro__link {
+        left: 50%;
+        bottom: 38px;
+        transform: translate(-50%, 0); } }
 .footer {
   background: linear-gradient(0deg, #17161B, #17161B), linear-gradient(0deg, #26232F, #26232F), url(image.png);
   padding: 95px 0px 20px 0px; }

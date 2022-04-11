@@ -1,24 +1,68 @@
 .header{
     position: fixed;
-    left: 0;
-    top: 0;
-    background: #071545;
-    width: 37px;
+    bottom: 0;
     height: 100%;
+    left: 0;    
+    background: #071545;
+    width: 37px;    
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1001;
+    z-index: 1001;    
+    @include xl-d{
+        bottom: 50%;
+        transform: translate(0, 50%);
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    @include lg-d{
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        height: 37px;
+        width: auto;
+    }
+    @include sm-d{
+        left: 0;
+        bottom: 50%;
+        transform: translate(0, 50%);
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 37px;
+    }
     &__list{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        @include lg-d{
+            flex-direction: row-reverse;
+            padding: 0 25px;
+        }
+        @include sm-d{
+            flex-direction: column;
+        }
     } 
     &__item{
         margin-bottom: 25px;
         &:last-child{
             margin-bottom: 0;
+        }
+        @include lg-d{
+            margin-bottom: 0;
+            margin-left: 15px;
+            &:last-child{
+                margin-left: 0;
+            }
+        }
+        @include sm-d{
+            margin-left: 0;
+            margin-bottom: 25px;
+            &:last-child{
+                margin-bottom: 0;
+            }
         }
     }   
     &__link{

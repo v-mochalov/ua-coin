@@ -1,44 +1,89 @@
 .intro{
-    overflow: hidden;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 37px;
+    overflow: hidden;    
+    display: flex;    
+    align-items: center;    
     height: 100vh;
     z-index: 3;
-    width: 100vw;
-    &__video{
-        
+    @include xl{
+        margin-left: 37px;
+    }
+    @include lg-d{
+        background: linear-gradient(153.99deg, #736ECC 0%, #D7CB89 100%);
+    } 
+    &__video{        
         display: flex;
         justify-content: center;
         position: fixed;
         z-index: 2;
-        left: 37px;
+        left: 0;
         bottom: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        @include xl{
+            left: 37px;
+        }
+        @include lg-d{
+            display: none;
+        }
     }
     &__wrapper{
         position: relative;
-        z-index: 1100;
-        width: 1300px;
+        z-index: 1100;        
         display: flex;
         justify-content: space-between;
-       align-items: center;
+        align-items: center;
+        
+        @include xl{
+            left: 37px;
+            width: 1300px;
+        }
+        @include xl-d{
+            width: 900px;
+        }
+        @include lg-d{            
+            width: auto;
+            align-content: center;
+        }
+        @include md-d{
+            flex-direction: column;
+        }
     }
     &__left{
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
+        
+        @include md-d{
+            margin-bottom: 125px;
+            justify-content: center;
+            font-size: 30px;
+            line-height: 27px;            
+        }
+        @include sm-d{
+            margin-bottom: 65px;
+        }
+    }
+    &__img{
+        visibility: hidden;
+        @include lg-d{
+            visibility: visible;
+        }
+        @include md-d{            
+            margin-bottom: 110px;
+        }
+        @include sm-d{
+            margin-bottom: 65px;
+        }
     }
     &__downline{
         margin-top: 18px;
         font-size: 32px;
         line-height: 23px;
         color: #FFFFFF;
-        margin-bottom: 50px;
+        margin-bottom: 50px;        
     }
     &__img{
         img{
@@ -61,12 +106,17 @@
         }     
     }
     &__timer-title{
+        text-align: center;
         font-size: 40px;
         line-height: 20px;
         color: #071545;
         font-style: normal;
         font-weight: 700;
         margin-bottom: 20px;
+        @include md-d{
+            font-size: 22px;
+            line-height: 20px;
+        }
     }
     &__timer{
         display: flex;
@@ -77,13 +127,19 @@
             font-size: 24px;
             line-height: 28px;
             text-align: center;
-            font-weight: 700; 
-            margin-left: 20px;                
+            font-weight: 700;            
+            display: flex; 
+            flex-wrap: nowrap; 
+             
+                       
         }        
         
         #clockdiv > div{	
             margin-right: 22px;
             display: inline-block;
+            &:last-child{
+                margin-right: 0;
+            }
         }        
         #clockdiv div > span{
             padding: 11px;
@@ -94,6 +150,7 @@
             border-radius: 20px;
             display: inline-block;
             width: 55px; 
+            
         }        
         .smalltext{            
             margin-top: 6px;
@@ -104,28 +161,22 @@
         }
     }
     &__link{
-        position: absolute;
-        right: 60px;
+        position: fixed;
+        right: 40px;
         bottom: 25px;
-        z-index: 1001;
+        z-index: 9999999;
         transition: 1s linear;
         &:hover{
             transition: 0.5s linear;
             filter: drop-shadow(0px 0px 10px yellow);
-        }        
-    }
-    &__bg{
-        img{
-            width: 300px;
-            margin-left: 37px;
-        }        
-        position: fixed;
-        bottom: -40%;
-        left: 50%;
-        opacity: 0.5;
-        transform: translate(-50%, -50%);
-        @include xxl{
-            bottom: -20%;
+        }  
+        @include lg-d{
+            width: 60px;
+        }      
+        @include sm-d{
+            left: 50%;
+            bottom: 38px;
+            transform: translate(-50%, 0);
         }
-    }
+    }    
 }
